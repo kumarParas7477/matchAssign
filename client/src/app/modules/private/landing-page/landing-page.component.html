@@ -14,7 +14,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <app-match-data-table />
+    <div *ngIf="NewMatchData.length">
+      <app-match-data-table
+        [NewMatchData]="NewMatchData"
+      ></app-match-data-table>
+    </div>
   </body>
 </html>
 <router-outlet></router-outlet>
