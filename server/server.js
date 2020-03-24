@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
 mongoose
-  .connect("mongodb://localhost:27017/usersData", {
+  .connect("mongodb://localhost:27017/userDocument", {
     useNewUrlParser: true,
     useFindAndModify: false
   })

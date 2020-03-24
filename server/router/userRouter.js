@@ -3,7 +3,7 @@ module.exports = app => {
   app.get("/users", (req, res) => {
     userRepository.getAllUsersInfo().then(data => res.json(data));
   });
-  app.post("/users", (req, res) => {
+  app.put("/createProfile", (req, res) => {
     userRepository.save(req.body).then(users => res.json(users));
   });
   app.get("/users/:id", (req, res) => {
