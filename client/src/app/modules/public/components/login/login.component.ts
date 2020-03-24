@@ -46,7 +46,9 @@ export class LoginComponent implements OnInit {
       this.LoginForm.value.password == ""
     ) {
       return true;
-    } else return false;
+    } else {
+      return false;
+    }
   }
   login() {
     this.username = this.LoginForm.value.username.toLowerCase();
@@ -57,12 +59,10 @@ export class LoginComponent implements OnInit {
         data.Username.toLocaleLowerCase() === this.username &&
         data.password === this.LoginForm.value.password
       ) {
-        // this.flag = 1;
-        // if (data.isActive) {
-        // localStorage.setItem('data', JSON.stringify(data));
-        // localStorage.setItem('role', `${data.role.toLowerCase()}`);
         this._router.navigate(["./private"]);
-      } else alert("Invalid Credentials");
+      } else {
+        alert("Invalid Credentials");
+      }
     });
   }
 }

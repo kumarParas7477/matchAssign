@@ -4,9 +4,10 @@ import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { PrivateRoutingModule } from "./private-routing.module";
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @NgModule({
-  declarations: [LandingPageComponent],
+  declarations: [LandingPageComponent, NavbarComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -17,7 +17,7 @@ import { CommonModule } from "@angular/common";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
     // PublicModule,
     // PrivateModule
   ],
