@@ -27,18 +27,26 @@ export class LoginComponent implements OnInit {
 
   profiles: IProfile[];
   ngOnInit() {
-    localStorage.clear();
-
     // tslint:disable-next-line: whitespace
     this._service.getProfiles().subscribe((data: IProfile[]) => {
       this.profiles = data;
 
       // tslint:disable-next-line:align
     });
+
     this.LoginForm = this.fb.group({
       username: ["", [Validators.required]],
       password: ["", Validators.required]
     });
+  }
+
+  disableLogin() {
+    if (
+      this.LoginForm.value.username == "" ||
+      this.LoginForm.value.password == ""
+    ) {
+      return true;
+    } else return false;
   }
   login() {
     this.username = this.LoginForm.value.username.toLowerCase();
@@ -46,14 +54,14 @@ export class LoginComponent implements OnInit {
     // tslint:disable-next-line:align
     this.profiles.map(data => {
       if (
-        data.username.toLocaleLowerCase() === this.username &&
+        data.Username.toLocaleLowerCase() === this.username &&
         data.password === this.LoginForm.value.password
       ) {
         // this.flag = 1;
         // if (data.isActive) {
         // localStorage.setItem('data', JSON.stringify(data));
         // localStorage.setItem('role', `${data.role.toLowerCase()}`);
-        this._router.navigate(["./register"]);
+        this._router.navigate(["./private"]);
       } else alert("Invalid Credentials");
     });
   }
