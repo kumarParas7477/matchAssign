@@ -5,9 +5,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { PrivateRoutingModule } from "./private-routing.module";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { MatchDataTableComponent } from './match-data-table/match-data-table.component';
 
 @NgModule({
-  declarations: [LandingPageComponent, NavbarComponent],
+  declarations: [LandingPageComponent, NavbarComponent, MatchDataTableComponent],
   imports: [
     CommonModule,
     FormsModule,
