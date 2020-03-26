@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     // tslint:disable-next-line:align
     private _service: GetREgisteredUsersService
-  ) {}
+  ) { }
 
   // tslint:disable-next-line:variable-name
   username: string;
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   profiles: IProfile[];
   ngOnInit() {
+    sessionStorage.clear();
     // tslint:disable-next-line: whitespace
     this._service.getProfiles().subscribe((data: IProfile[]) => {
       this.profiles = data;
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit {
         data.Username.toLocaleLowerCase() === this.username &&
         data.password === this.LoginForm.value.password
       ) {
+        sessionStorage.setItem("username", this.username);
         this._router.navigate(["./private"]);
       } else {
         alert("Invalid Credentials");

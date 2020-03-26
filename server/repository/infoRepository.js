@@ -12,9 +12,8 @@ class InfoRepository {
   // { console.log(id);
   //   return User.findOneAndUpdate( {"employeeId": id}, {$set: profile});
   // }
-  // UserInfo(id)
-  // {
-  //    return User.find({'employeeId': id}).then(profile => profile);
-  // }
+  UserInfo(username, match) {
+    return User.findOneAndUpdate({ 'Username': username }, { $push: { favourites: { $each: [match] } } }).then(profile => profile).catch(error => console.log(error));
+  }
 }
 module.exports = new InfoRepository();
