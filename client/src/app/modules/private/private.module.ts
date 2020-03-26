@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { LandingPageComponent } from "./components/landing-page/landing-page.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { PrivateRoutingModule } from "./private-routing.module";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { MatchDataTableComponent } from './match-data-table/match-data-table.component';
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { MatchDataTableComponent } from './components/match-data-table/match-data-table.component';
 
 @NgModule({
   declarations: [LandingPageComponent, NavbarComponent, MatchDataTableComponent],
@@ -17,4 +17,4 @@ import { MatchDataTableComponent } from './match-data-table/match-data-table.com
     PrivateRoutingModule
   ]
 })
-export class PrivateModule {}
+export class PrivateModule { }

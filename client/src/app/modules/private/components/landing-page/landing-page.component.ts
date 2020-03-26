@@ -9,10 +9,11 @@ import { GetmatchdataService } from "../services/getmatchdata.service";
 })
 export class LandingPageComponent implements OnInit {
   NewMatchData: any[] = [];
-  constructor(private _matchdata: GetmatchdataService) {}
+  constructor(private _matchdata: GetmatchdataService) { }
 
   ngOnInit() {
     this._matchdata.getNewMatchdata().subscribe((data: any) => {
+      console.log(data);
       this.NewMatchData = [...data.matches];
     });
   }
