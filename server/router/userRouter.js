@@ -5,11 +5,7 @@ module.exports = app => {
     axios({
       "method": "GET",
       "url": `https://cricapi.com/api/matches?apikey=${process.env.KEY}`,
-      // "headers": {
-      //     "content-type": "application/octet-stream",
-      //     "x-rapidapi-host": "covid-193.p.rapidapi.com",
-      //     "x-rapidapi-key": process.env.KEY
-      // }
+    
     })
       .then((response) => res.json(response.data))
       .catch((error) => {
@@ -20,11 +16,7 @@ module.exports = app => {
     axios({
       "method": "GET",
       "url": `https://cricapi.com/api/cricket?apikey=${process.env.KEY}`,
-      // "headers": {
-      //     "content-type": "application/octet-streaym",
-      //     "x-rapidapi-host": "covid-193.p.rapidapi.com"
-      //     "x-rapidapi-key": process.env.KEY
-      // }
+     
     })
       .then((response) => res.json(response.data))
       .catch((error) => {
