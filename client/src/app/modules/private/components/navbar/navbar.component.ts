@@ -10,7 +10,7 @@ import { ShareDataServiceService } from '../../../../sharedModule/share-data-ser
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  role: string;
+  send: boolean = false;
   NewMatchData: any[] = [];
   FilterData: any[] = [];
   _enteredtext: string;
@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
     this._matchdata.getNewMatchdata().subscribe((data: any) => {
       console.log(data);
       this.NewMatchData = [...data.matches];
-      // this._shareService.saveData(this.NewMatchData);
-      this.FilterData = this.NewMatchData;
+      this._shareService.saveData(this.NewMatchData);
+      this.send = true;
     });
   }
 
@@ -34,16 +34,9 @@ export class NavbarComponent implements OnInit {
 
     this._router.navigate(['/public']);
   }
-  set enteredtext(newValue: string) {
-    this._enteredtext = newValue;
-    console.log(newValue);
-    this.FilterData = this._enteredtext ? this.filter(this._enteredtext) : this.NewMatchData;
-  }
-  filter(filtertext: string) {
-    // console.log(enteredtext);
-    return (this.NewMatchData.filter((datas: any) =>
-      (datas['team-1'].toLowerCase().indexOf(filtertext.toLowerCase()) !== -1) || (datas['team-2'].toLowerCase().indexOf(filtertext.toLowerCase()) !== -1)
-    ))
+
+  naviToRec() {
+    this._router.navigate(['/private/recommend']);
 
   }
 

@@ -1,6 +1,10 @@
 body {
   font-size: 15px;
+  background-color: lightgray;
 }
 .table-dark {
   border: 12px;
+}
+button{
+  cursor: pointer;
 }

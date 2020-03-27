@@ -18,17 +18,23 @@
       <li class="nav-item">Cric-Fugly</li>
 
 
-      <li>
-        <input type='text' style="border-radius: 15px ;" [(ngModel)]="enteredtext" (change)='filter'>
-      </li>
+
       <!-- </li> -->
+
+      <li class="navbar-right  active ">
+        <a class=" nav-link " style=" color: red; float: right;" (click)='naviToRec()'>Recommendations</a>
+      </li>
       <li class="navbar-right  active ">
         <a class=" nav-link " style=" color: red; float: right;" (click)="logout()">LOGOUT</a>
       </li>
+
     </ul>
   </nav>
 </body>
 
 </html>
+<div *ngIf="send">
+  <router-outlet></router-outlet>
+</div>
 
-<app-landing-page [NewMatchData]='FilterData'></app-landing-page>
+<!-- <app-landing-page [NewMatchData]='FilterData'></app-landing-page> -->

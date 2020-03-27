@@ -12,9 +12,30 @@
 </head>
 
 <body>
-  <div style="margin-top: 10px">
-    <app-match-data-table [NewMatchData]="NewMatchData"></app-match-data-table>
+  <div style="margin-top: 10px" class="row">
+    <div class=".btn-group" style="float: right">
+      <button class="btn-dark" (click)='setTableView()'>Table</button>
+      <button class="btn-dark" (click)='setCalView()'>Calender</button>
+    </div>
+    <div>
+
+      <div class="row">
+        <div class="container col-lg-8 col-md-8 col-sm-8" style="margin-top: 10px">
+          <div *ngIf="tableView">
+            <app-match-data-table [NewMatchData]="NewMatchData"></app-match-data-table>
+          </div>
+          <div *ngIf="calenderView">
+            <app-calender></app-calender>
+          </div>
+        </div>
+
+        <div class="container col-lg-4 col-md-4 col-sm-4">
+          <app-reco-compon></app-reco-compon>
+        </div>
+      </div>
+    </div>
   </div>
+
 </body>
 
 </html>
