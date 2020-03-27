@@ -6,9 +6,10 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 const routes: Routes = [
   {
     path: "",
-    component: NavbarComponent,
-    children: [{ path: "", component: LandingPageComponent }]
+    component: NavbarComponent
   }
+
+
 ];
 
 @NgModule({

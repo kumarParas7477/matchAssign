@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { GetmatchdataService } from '../services/getmatchdata.service';
+import { GetmatchdataService } from "../../services/getmatchdata.service";
 
 
 @Component({
