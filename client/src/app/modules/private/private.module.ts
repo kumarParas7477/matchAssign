@@ -16,9 +16,11 @@ import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { DemoComponent } from "./components/calendar-component/calendar-component.component";
 import { DemoUtilsModule } from "./components/calendar-util/calendar-utils.module";
+import { OldMatchComponent } from './components/old-match/old-match.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
-  declarations: [LandingPageComponent, NavbarComponent, MatchDataTableComponent, RecoComponComponent, DemoComponent],
+  declarations: [LandingPageComponent, NavbarComponent, MatchDataTableComponent, RecoComponComponent, DemoComponent, OldMatchComponent, StatsComponent],
   imports: [
     CommonModule,
     FormsModule,

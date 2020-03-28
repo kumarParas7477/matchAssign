@@ -1,17 +1,18 @@
+<h1 class='bg-dark' style="text-align: center;color: white;">Calendar View</h1>
+
 <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
 </mwl-demo-utils-calendar-header>
 
-<div class="alert alert-info">
-  For details on how to customise any of the templates, please see
-  <a href="https://github.com/mattlewis92/angular-calendar#how-do-i-use-a-custom-template">this guide</a>
-</div>
+
 
 <ng-template #customCellTemplate let-day="day" let-locale="locale">
   <div class="cal-cell-top">
     <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
     <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
   </div>
-  <small style="margin: 5px"> {{ day.events.length }} Matches on this day</small>
+  <small style="margin: 5px">
+    <strong> {{ day.events.length==1? day.events[0].title : day.events.length  }} </strong>matches on this day.
+  </small>
 </ng-template>
 
 <div [ngSwitch]="view">

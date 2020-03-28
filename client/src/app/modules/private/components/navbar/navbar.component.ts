@@ -53,7 +53,9 @@ export class NavbarComponent implements OnInit {
 
   naviToRec() {
     this._router.navigate(['private/recommend']);
-
+  }
+  naviToOldMatch() {
+    this._router.navigate(['private/oldMatch'])
   }
 
 }

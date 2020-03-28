@@ -10,7 +10,12 @@ button{
 }
 .container {
   margin: 0 auto;
-  padding-top: 2px;
-  border-style: double
+  padding-top: 10px;
+  border-style: groove;
 
+
+}
+.btn-group{
+  border:10px;
+  border-radius: 12px;
 }

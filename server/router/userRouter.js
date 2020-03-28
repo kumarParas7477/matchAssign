@@ -5,7 +5,7 @@ module.exports = app => {
     axios({
       "method": "GET",
       "url": `https://cricapi.com/api/matches?apikey=${process.env.KEY}`,
-    
+
     })
       .then((response) => res.json(response.data))
       .catch((error) => {
@@ -16,13 +16,26 @@ module.exports = app => {
     axios({
       "method": "GET",
       "url": `https://cricapi.com/api/cricket?apikey=${process.env.KEY}`,
-     
+
     })
       .then((response) => res.json(response.data))
       .catch((error) => {
         console.log(error)
       })
   })
+
+  app.get('/stats/:id', (req, res) => {
+    axios({
+      "method": "GET",
+      "url": `https://cricapi.com/api/cricketScore?apikey=${process.env.KEY}&unique_id=${params.id}`,
+
+    })
+      .then((response) => res.json(response.data))
+      .catch((error) => {
+        console.log(error)
+      })
+  })
+
   app.get("/users", (req, res) => {
     userRepository.getAllUsersInfo().then(data => res.json(data));
   });
