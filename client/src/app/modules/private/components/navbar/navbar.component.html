@@ -12,20 +12,14 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-fixed-top bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-lg  navbar-fixed-top bg-dark navbar-dark">
     <ul class="navbar-nav">
-      <!-- <li class="nav-item active"> -->
-      <div class="nav-item">Cric-Fugly</div>
-
-
-
-      <!-- </li> -->
-
+      <div class="nav-item " style="color: aliceblue">Cric-Fugly</div>
       <div id='recommend' class="navbar-right  active ">
-        <a class=" nav-link " style=" color: red; float: right;" (click)='naviToRec()'>Recommendations</a>
+        <a class="nav-link" (click)='naviToRec()'>Recommendations</a>
       </div>
-      <div class="navbar-right  active ">
-        <a class=" nav-link " style=" color: red; float: right;" (click)="logout()">LOGOUT</a>
+      <div class="navbar-item">
+        <button class="btn btn-lg btn-danger" (click)='logout()'>Logout</button>
       </div>
 
     </ul>

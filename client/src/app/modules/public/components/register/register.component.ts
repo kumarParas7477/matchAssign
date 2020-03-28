@@ -14,20 +14,20 @@ export class RegisterComponent implements OnInit {
   Id: number;
   // data: IProfile;
   // tslint:disable-next-line:variable-name
-  constructor(private fb: FormBuilder , private _createProfile: GetREgisteredUsersService , private _router: Router) {  }
+  constructor(private fb: FormBuilder, private _createProfile: GetREgisteredUsersService, private _router: Router) { }
   ngOnInit(): void {
 
-this.profileForm = this.fb.group({
-      username: ['', Validators.required],
+    this.profileForm = this.fb.group({
+      Username: ['', Validators.required],
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       password: ['', Validators.required],
-      
-      });
+
+    });
   }
 
-  get function()  {
-return this.profileForm.controls;
+  get function() {
+    return this.profileForm.controls;
   }
 
   saveProfile() {
@@ -35,7 +35,8 @@ return this.profileForm.controls;
 
     this._createProfile.createProfile(this.profileForm.value).subscribe(data => (data));
     alert("You have Registered");
-    setTimeout(() => { this._router.navigate(['/public']);
+    setTimeout(() => {
+      this._router.navigate(['/public']);
 
     }, 2000);
 

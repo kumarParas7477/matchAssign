@@ -1,18 +1,39 @@
-#nav :hover {
-  cursor: pointer;
+ .navbar {
+  width: 100%;
+   overflow: auto; 
+   border: 10px;
+  border-radius: 10px; 
+   
 }
-body {
-  font-size: 20px;
+#logo{
+ margin-inline-start: 0%;
 }
-.navbar{
-  position: relative;
-}
-/* .navbar li:last-child {
-  float: right; /* last li item */
-  /* top:10px; */
-/* } */ 
-
 #recommend{
- 
-    margin: 0 auto;
-   }
+  margin-inline-end: 0%;
+  
+}
+
+#b1 {
+  float: right;
+  margin-left: 1200px; 
+ }
+
+.navbar a {
+  color: white;
+  text-decoration: none;  
+}
+
+
+
+ @media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+  body{
+    width: 400px
+  }
+} 
+ body{
+  font-size: 17px
+} 

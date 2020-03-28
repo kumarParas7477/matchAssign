@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="col-lg-4 col-md-4 col-sm-4">
+  <div>
     <table class="table table-dark">
       <thead>
         <tr>
@@ -24,9 +24,11 @@
           <!-- <th>Toss Winner</th>
           <th>Winner</th> -->
           <th>
-            <input type='text' placeholder="search"
-              style="border-radius: 15px ;background-color: grey ; padding-left: 3px;" [(ngModel)]="enteredtext"
-              (change)='filter'>
+            <!-- <input 
+              > -->
+            <input [(ngModel)]="enteredtext" type='text' placeholder="search" (change)='filter'
+              class="form-control mr-sm-2"
+              style="border-radius: 15px ;background-color: grey;color: azure;font-size: 10px " aria-label="Search">
           </th>
         </tr>
       </thead>
