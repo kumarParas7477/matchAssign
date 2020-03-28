@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import 'flatpickr/dist/flatpickr.css';
 import { CommonModule } from "@angular/common";
 import { LandingPageComponent } from "./components/landing-page/landing-page.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -7,16 +8,31 @@ import { PrivateRoutingModule } from "./private-routing.module";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MatchDataTableComponent } from './components/match-data-table/match-data-table.component';
 import { RecoComponComponent } from "./components/reco-compon/reco-compon.component";
-import { CalenderComponent } from './components/calender/calender.component';
+
+import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
+
+import { CalendarModule, DateAdapter } from "angular-calendar";
+import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { DemoComponent } from "./components/calendar-component/calendar-component.component";
+import { DemoUtilsModule } from "./components/calendar-util/calendar-utils.module";
 
 @NgModule({
-  declarations: [LandingPageComponent, NavbarComponent, MatchDataTableComponent, RecoComponComponent, CalenderComponent],
+  declarations: [LandingPageComponent, NavbarComponent, MatchDataTableComponent, RecoComponComponent, DemoComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    PrivateRoutingModule
+    PrivateRoutingModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+    DemoUtilsModule
   ]
+
 })
 export class PrivateModule { }

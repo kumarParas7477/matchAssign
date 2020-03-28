@@ -1,5 +1,5 @@
 export interface IRecomm {
-    match: any;
+    match: {};
     frequency: number;
 
 }
