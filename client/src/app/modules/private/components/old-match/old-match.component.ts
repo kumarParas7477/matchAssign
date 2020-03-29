@@ -8,6 +8,7 @@ import { GetmatchdataService } from '../../services/getmatchdata.service';
 })
 export class OldMatchComponent implements OnInit {
   OldMatchdata: any[] = [];
+  match: any;
   stats: any
   FilterData: any[] = [];
   _enteredtext: string;
@@ -23,8 +24,11 @@ export class OldMatchComponent implements OnInit {
 
     })
   }
-  FindStats(item: any) {
 
+  FindStats(item: any) {
+    this._getData.getStats(item.unique_id).subscribe((data: any) => {
+      this.match = data;
+    })
 
   }
 

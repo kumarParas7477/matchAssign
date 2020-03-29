@@ -15,6 +15,7 @@ class InfoRepository {
   UserInfo(username) {
     return User.findOne({ 'Username': username }).then(profile => profile).catch(error => console.log(error));
   }
+
   UpdateInfo(username, match) {
     return User.findOneAndUpdate({ 'Username': username }, { $push: { 'favourites': { $each: [match] } } }).then(profile => profile).catch(error => console.log(error));
   }

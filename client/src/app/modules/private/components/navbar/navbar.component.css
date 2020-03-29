@@ -30,10 +30,9 @@
     float: none;
     display: block;
   }
-  body{
-    width: 400px
-  }
+  
 } 
  body{
-  font-size: 17px
+  font-size: 17px;
+  background-color: lightgray
 } 

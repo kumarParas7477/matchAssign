@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { IRecomm } from '../../model/recomm.model';
 import { ShareDataServiceService } from '../../../../sharedModule/share-data-service.service';
+
 
 
 
@@ -11,27 +12,20 @@ import { ShareDataServiceService } from '../../../../sharedModule/share-data-ser
 })
 export class RecoComponComponent implements OnInit {
   show: boolean = false;
-  favourites: any[] = [];
 
-  match: any[] = [];
-  frequency: number[] = [];
-  recomm: IRecomm = { match: {}, frequency: 0 }
-  recommedation: IRecomm[] = [];
+  recommendation: IRecomm[] = [];
   constructor(private _shareService: ShareDataServiceService) { }
 
   ngOnInit() {
-    this.favourites = [...this._shareService.getFavourites()];
-    console.log(this.favourites);
 
-    this.calculateFrequency();
-
+    this.recommendation = [...this._shareService.getFavourites()];
+    this.show = true;
 
   }
-
-  calculateFrequency() {
-
-    ;
+  getDate(name: string) {
+    return (new Date(name).getDate().toString() + '-' + new Date(name).getMonth().toString() + '-' + new Date(name).getFullYear().toString()).toString()
   }
+
 
 
 }

@@ -4,11 +4,11 @@ import { LandingPageComponent } from "./components/landing-page/landing-page.com
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { RecoComponComponent } from './components/reco-compon/reco-compon.component';
 import { OldMatchComponent } from './components/old-match/old-match.component';
-
+import { PrivateguardGuard } from './services/privateguard.guard';
 const routes: Routes = [
   {
     path: "",
-    component: NavbarComponent, children: [
+    component: NavbarComponent, canActivate: [PrivateguardGuard], children: [
       { path: '', component: LandingPageComponent, },
       { path: "recommend", component: RecoComponComponent },
       { path: 'oldMatch', component: OldMatchComponent }

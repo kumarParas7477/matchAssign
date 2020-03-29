@@ -49,5 +49,6 @@ module.exports = app => {
   app.get("/users/:username", (req, res) => {
     userRepository.UserInfo(req.params.username).then(data => res.json(data));
   })
+  app
 
 };

@@ -18,7 +18,6 @@ export class MatchDataTableComponent implements OnInit {
     this.FilterData = this.NewMatchData;
   }
   addToFavourites(match: any) {
-    console.log(match);
     this._matchService.addToFavourites(sessionStorage.getItem('username'), match).subscribe((data: any) => {
       console.log(data);
     })
