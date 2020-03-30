@@ -12,39 +12,28 @@
 </head>
 
 <body>
-  <!-- <nav class="navbar navbar-expand-lg  navbar-fixed-top bg-dark navbar-dark">
-    <ul class="navbar-nav">
-      <div class="nav-item " style="color: aliceblue" (click)='reload()'>Cric-Fugly</div>
-      <div id='recommend' class="navbar-right  active ">
-        <a class="nav-link" (click)='naviToRec()'>Recommendations</a>
-      </div>
-      <div class="navbar-right  active ">
-        <a class="nav-link" (click)='naviToOldMatch()'>Old_Matches</a>
-      </div>
-      <div class="navbar-item navbar-right">
-        <button class="btn btn-lg btn-danger" (click)='logout()'>Logout</button>
-      </div>
 
-    </ul>
-  </nav> -->
   <nav class="navbar  navbar-expand-lg bg-dark navbar-dark">
     <div class="navbar-inner">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a (click)='reload()'>Cric-Fugly</a>
+          <div id='link' (click)='reload()'>Cric-Fugly</div>
         </div>
         <ul style="text-align-last: auto" class="nav navbar-nav navbar-right">
           <!-- <li><a href="#">Profile</a></li> -->
-          <li><a (click)='naviToOldMatch()'>Old_Matches</a></li>
-          <li><a (click)='naviToRec()'>Recommendations</a></li>
           <li>
+            <div id='link' (click)='naviToOldMatch()'>Old_Matches</div>
+          </li>
+          <li>
+            <div id='link' (click)='naviToRec()'>Recommendations</div>
+          </li>
+          <li>
+            <button style='margin-top: 4px' class="btn btn-lg btn-danger" (click)='logout()'>Logout</button>
           </li>
         </ul>
       </div>
     </div>
-    <div style="margin-inline-end: 0">
-      <button class="btn btn-lg btn-danger" (click)='logout()'>Logout</button>
-    </div>
+
   </nav>
   <router-outlet *ngIf="send"></router-outlet>
 </body>

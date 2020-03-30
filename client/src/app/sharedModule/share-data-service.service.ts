@@ -19,7 +19,6 @@ export class ShareDataServiceService {
     return this.Users;
   }
   public setFavourites(favourites: any[]) {
-    console.log("Paras");
     this.favourites = [...favourites];
 
     const groupByAge = this.favourites.reduce((acc, it) => {
@@ -33,7 +32,7 @@ export class ShareDataServiceService {
 
           this.recomm.match = this.favourites.filter(match => match['unique_id'] == parseInt(key))[0];
           this.recomm.frequency = groupByAge[key];
-          this.recommedation.push(this.recomm);
+          this.recommedation.push(JSON.parse(JSON.stringify(this.recomm)));
 
         }
       }

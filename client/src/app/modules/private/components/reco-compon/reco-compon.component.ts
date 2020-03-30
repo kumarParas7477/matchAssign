@@ -19,6 +19,7 @@ export class RecoComponComponent implements OnInit {
   ngOnInit() {
 
     this.recommendation = [...this._shareService.getFavourites()];
+
     this.show = true;
 
   }
