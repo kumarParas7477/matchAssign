@@ -23,10 +23,10 @@
             <th>Team1</th>
             <th>Team2</th>
             <th>Type</th>
-
             <th>
               Frequency
             </th>
+            <th>Add To Favourites</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +37,9 @@
             <td><strong>{{  item.match.type }}</strong></td>
 
             <td>{{item.frequency}}
-            </td>
+            <td><button class="btn btn-primary" (click)='addToFavourites(item)'><strong>Add To FAVOURITES</strong>
+              </button></td>
+
           </tr>
         </tbody>
       </table>

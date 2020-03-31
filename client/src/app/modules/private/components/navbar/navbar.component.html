@@ -16,23 +16,29 @@
   <nav class="navbar  navbar-expand-lg bg-dark navbar-dark">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <div id='link' (click)='reload()'>Cric-Fugly</div>
-        </div>
-        <ul style="text-align-last: auto" class="nav navbar-nav navbar-right">
+
+
+
+        <ul class="list-inline">
           <!-- <li><a href="#">Profile</a></li> -->
           <li>
-            <div id='link' (click)='naviToOldMatch()'>Old_Matches</div>
+            <div style="" class="list-inline-item" id='link' (click)='reload()'>Cric-Fugly</div>
           </li>
           <li>
-            <div id='link' (click)='naviToRec()'>Recommendations</div>
+            <div class="list-inline-item" id='link' (click)='naviToOldMatch()'>Old_Matches</div>
           </li>
           <li>
-            <button style='margin-top: 4px' class="btn btn-lg btn-danger" (click)='logout()'>Logout</button>
+            <div class="list-inline-item" id='link' (click)='naviToRec()'>Recommendations</div>
+          </li>
+          <li>
+            <div style="padding-left:1100px" class="list-inline-item"> <button style='margin-top: 4px'
+                class="btn btn-lg btn-danger" (click)='logout()'>Logout</button></div>
           </li>
         </ul>
       </div>
     </div>
+
+
 
   </nav>
   <router-outlet *ngIf="send"></router-outlet>

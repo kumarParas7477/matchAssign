@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { IRecomm } from '../../model/recomm.model';
 import { ShareDataServiceService } from '../../../../sharedModule/share-data-service.service';
+import { GetmatchdataService } from '../../services/getmatchdata.service';
 
 
 
@@ -14,7 +15,7 @@ export class RecoComponComponent implements OnInit {
   show: boolean = false;
 
   recommendation: IRecomm[] = [];
-  constructor(private _shareService: ShareDataServiceService) { }
+  constructor(private _shareService: ShareDataServiceService, private _matchService: GetmatchdataService) { }
 
   ngOnInit() {
 
@@ -25,6 +26,11 @@ export class RecoComponComponent implements OnInit {
   }
   getDate(name: string) {
     return (new Date(name).getDate().toString() + '-' + new Date(name).getMonth().toString() + '-' + new Date(name).getFullYear().toString()).toString()
+  }
+  addToFavourites(match: any) {
+    this._matchService.addToFavourites(sessionStorage.getItem('username'), match).subscribe((data: any) => {
+      console.log(data);
+    })
   }
 
 

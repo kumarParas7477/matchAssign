@@ -1,9 +1,5 @@
-<link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-  crossorigin="anonymous"
-/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -22,23 +18,18 @@
                 <h3>
                   <label for="username" class="text-info">Username:</label>
                 </h3>
-                <input
-                  type="text"
-                  placeholder="Jonh_paul"
-                  formControlName="username"
-                  class="form-control"
-                />
 
-                <div
-                  *ngIf="
+                <input type="email" placeholder="JonhPaul1234@gmail.com" formControlName="username" class="form-control"
+                  required />
+
+                <div *ngIf="
                     LoginForm.controls['username'].invalid &&
                     (LoginForm.controls['username'].dirty ||
                       LoginForm.controls['username'].touched)
-                  "
-                  class="alert-danger"
-                >
+                  " class="alert-danger">
                   <div *ngIf="LoginForm.controls['username'].errors.required">
                     Please Enter User Name
+
                   </div>
                 </div>
               </div>
@@ -48,33 +39,22 @@
                     <label for="password" class="text-info">Password:</label>
                   </h3>
 
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    formControlName="password"
-                    class="form-control"
-                  />
-                  <div
-                    *ngIf="
+                  <input type="password" placeholder="Password" formControlName="password" class="form-control"
+                    required />
+                  <div *ngIf="
                       LoginForm.controls['password'].invalid &&
                       (LoginForm.controls['password'].dirty ||
                         LoginForm.controls['password'].touched)
-                    "
-                    class="alert-danger"
-                  >
+                    " class="alert-danger">
                     <div *ngIf="LoginForm.controls['password'].errors.required">
                       Please Enter Password
                     </div>
-                  </div></span
-                >
+                  </div>
+                </span>
               </div>
               <br />
               <div class="form-group">
-                <button
-                  type="submit"
-                  [disabled]="disableLogin()"
-                  class="btn btn-info btn-md"
-                >
+                <button type="submit" [disabled]="disableLogin()" class="btn btn-info btn-md">
                   <h3>LOGIN</h3>
                 </button>
 
