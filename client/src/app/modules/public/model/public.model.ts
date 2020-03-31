@@ -3,4 +3,5 @@ export interface IProfile {
   lastname: string;
   Username: string;
   password: string;
+  favourites: [];
 }

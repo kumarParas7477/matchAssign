@@ -1,20 +1,27 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: "root"
 })
 export class GetmatchdataService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
   public getNewMatchdata(): Observable<any> {
     return this._http.get<any>(
-      "https://cricapi.com/api/matches?apikey=[Your_API_Key]"
+      "http://localhost:3000/NewMatchData"
     );
   }
   public getOldMatchdata(): Observable<any> {
-    return this._http.get<any>(
-      "https://cricapi.com/api/cricket?apikey=[Your_API_Key]"
-    );
+    return this._http.get<any>('http://localhost:3000/OldMatchData');
+  }
+  public addToFavourites(username: string, match: Object): Observable<any> {
+    const headers = new HttpHeaders({ 'content-Type': 'application/json' });
+    console.log(match);
+    return this._http.patch<any>(`http://localhost:3000/users/${username}`, match, { headers }).pipe(tap(data => console.log(data)));
+  }
+  public getStats(Unique_id: number): Observable<any> {
+
+    return this._http.get<any>(`http://localhost:3000/stats/${Unique_id}`);
   }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div *ngIf="show">
+    <div class="container">
+      <h1 class='bg-dark' style="text-align: center;color: white;">RECOMMENDATIONS</h1>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Team1</th>
+            <th>Team2</th>
+            <th>Type</th>
+            <th>
+              Frequency
+            </th>
+            <th>Add To Favourites</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of recommendation">
+            <td><strong>{{ getDate(item.match.dateTimeGMT) }}</strong></td>
+            <td><strong>{{ item.match['team-1']}}</strong></td>
+            <td><strong>{{ item.match['team-2']}}</strong></td>
+            <td><strong>{{  item.match.type }}</strong></td>
+
+            <td>{{item.frequency}}
+            <td><button class="btn btn-primary" (click)='addToFavourites(item)'><strong>Add To FAVOURITES</strong>
+              </button></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -12,31 +12,38 @@
 </head>
 
 <body>
-  <div class="col-lg-4 col-md-4 col-sm-4">
+
+  <div>
+    <h1 class='bg-dark' style="text-align: center;color: white;">Table View</h1>
     <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col-1">Date</th>
-          <th scope="col-1">Team1</th>
-          <th scope="col-1"></th>
-          <th scope="col-1">Team2</th>
-          <th scope="col-1">Type</th>
-          <th scope="col-1">Toss Winner</th>
-          <th scope="col-1">Winner</th>
-          <th scope="col-1"></th>
+          <th>Date</th>
+          <th>Team1</th>
+
+          <th>Team2</th>
+          <th>Type</th>
+          <!-- <th>Toss Winner</th>
+          <th>Winner</th> -->
+          <th>
+            <!-- <input 
+              > -->
+            <input [(ngModel)]="enteredtext" type='text' placeholder="India" (change)='filter'
+              class="form-control mr-sm-2"
+              style="border-radius: 15px ;background-color:white;color: azure;font-size: 10px " aria-label="Search">
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of NewMatchData">
+        <tr *ngFor="let item of FilterData">
           <!-- <th scope="row">3</th> -->
-          <td><strong>{{ item['date'] }}</strong></td>
+          <td><strong>{{ getDate(item['date']) }}</strong></td>
           <td><strong>{{ item['team-1']}}</strong></td>
-          <td><strong>vs</strong></td>
           <td><strong>{{ item['team-2']}}</strong></td>
           <td><strong>{{ item.type }}</strong></td>
-          <td><strong>{{ item.toss_winner_team }}</strong></td>
-          <td><strong>{{ item.winner_team }}</strong></td>
-          <td><button class="btn btn-primary"><strong>FAVOURITES</strong>
+          <!-- <td><strong>{{ item.toss_winner_team }}</strong></td>
+          <td><strong>{{ item.winner_team }}</strong></td> -->
+          <td><button class="btn btn-primary" (click)='addToFavourites(item)'><strong>Add To FAVOURITES</strong>
             </button></td>
         </tr>
       </tbody>
@@ -45,4 +52,3 @@
 </body>
 
 </html>
-<router-outlet></router-outlet>

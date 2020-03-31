@@ -1,0 +1,42 @@
+ .navbar {
+  width: 100%;
+   overflow: auto; 
+   border: 10px;
+  border-radius: 10px; 
+   
+}
+#logo{
+ margin-inline-start: 0%;
+}
+#recommend{
+  margin-inline-end: 0%;
+  
+}
+li{
+  text-align: center
+}
+
+
+
+#link {
+  padding: 10px;
+
+  color: white;
+  text-decoration: none;  
+  
+}
+
+
+
+
+ @media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+  
+} 
+ body{
+  font-size: 17px;
+  background-color: lightgray
+} 

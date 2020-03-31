@@ -4,7 +4,8 @@ const UserSchema = new Schema({
   firstname: String,
   lastname: String,
   Username: String,
-  password: String
+  password: String,
+  favourites: []
 });
 
 module.exports = mongoose.model("User", UserSchema);
