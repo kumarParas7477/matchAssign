@@ -15,13 +15,20 @@ export class GetmatchdataService {
   public getOldMatchdata(): Observable<any> {
     return this._http.get<any>('http://localhost:3000/OldMatchData');
   }
-  public addToFavourites(username: string, match: Object): Observable<any> {
+  public addToFavourites(id: any, match: Object): Observable<any> {
     const headers = new HttpHeaders({ 'content-Type': 'application/json' });
     console.log(match);
-    return this._http.patch<any>(`http://localhost:3000/users/${username}`, match, { headers }).pipe(tap(data => console.log(data)));
+    return this._http.patch<any>(`http://localhost:3000/users/${id}`, match, { headers }).pipe(tap(data => console.log(data)));
   }
   public getStats(Unique_id: number): Observable<any> {
 
     return this._http.get<any>(`http://localhost:3000/stats/${Unique_id}`);
+  }
+
+  public deleteFavourite(id: any, match: any): Observable<any> {
+    const headers = new HttpHeaders({ 'content-Type': 'application/json' });
+    console.log(match.unique_id);
+    return this._http.delete<any>(`http://localhost:3000/users/${id}`, match.unique_id).
+      pipe(tap(data => console.log(data)));
   }
 }

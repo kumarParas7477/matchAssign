@@ -13,15 +13,14 @@ export class LandingPageComponent implements OnInit {
   NewMatchData: any[] = [];
   tableView: boolean = true;
   calenderView: boolean = false;
+  myFavourite: any[] = [];
   constructor(private _matchdata: GetmatchdataService, private _shareService: ShareDataServiceService) { }
 
   ngOnInit() {
     this.NewMatchData = this._shareService.getData();
+    this.myFavourite = this._shareService.getMyfavourites();
+    console.log(this.myFavourite);
 
-    // this._matchdata.getNewMatchdata().subscribe((data: any) => {
-    //   console.log(data);
-    //   this.NewMatchData = [...data.matches];
-    // });
   }
   setTableView() {
     this.tableView = true;

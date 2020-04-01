@@ -42,13 +42,16 @@ module.exports = app => {
   app.put("/createProfile", (req, res) => {
     userRepository.save(req.body).then(users => res.json(users));
   });
-  app.patch("/users/:username", (req, res) => {
+  app.patch("/users/:id", (req, res) => {
     console.log(req.body);
-    userRepository.UpdateInfo(req.params.username, req.body).then(data => res.json(data));
+    userRepository.UpdateInfo(req.params.id, req.body).then(data => res.json(data));
   });
-  app.get("/users/:username", (req, res) => {
-    userRepository.UserInfo(req.params.username).then(data => res.json(data));
+  app.get("/users/:id", (req, res) => {
+    userRepository.UserInfo(req.params.id).then(data => res.json(data));
   })
-  app
+  app.delete("/users/:id", (req, res) => {
+
+    userRepository.deleteFavourites(req.params.id, req.body).then(data => res.json(data));
+  })
 
 };

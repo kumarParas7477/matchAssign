@@ -25,11 +25,15 @@
             <div style="" class="list-inline-item" id='link' (click)='reload()'>Cric-Fugly</div>
           </li>
           <li>
-            <div class="list-inline-item" id='link' (click)='naviToOldMatch()'>Old_Matches</div>
+            <div class="list-inline-item" id='link' (click)='nav(old)'>Old_Matches</div>
           </li>
           <li>
-            <div class="list-inline-item" id='link' (click)='naviToRec()'>Recommendations</div>
+            <div class="list-inline-item" id='link' (click)='nav(fav)'>Favourites</div>
           </li>
+          <li>
+            <div class="list-inline-item" id='link' (click)='nav(rec)'>Recommendations</div>
+          </li>
+
           <li>
             <div style="padding-left:1100px" class="list-inline-item"> <button style='margin-top: 4px'
                 class="btn btn-lg btn-danger" (click)='logout()'>Logout</button></div>

@@ -12,7 +12,7 @@ export class PublicGuardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (sessionStorage.getItem('username')) {
+    if (sessionStorage.getItem('_id')) {
       this._router.navigate(['/private']);
       return false
     }

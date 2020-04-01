@@ -16,8 +16,8 @@ export class OldMatchComponent implements OnInit {
 
   ngOnInit() {
     this._getData.getOldMatchdata().subscribe((matches: any) => {
-
-      if (matches[0].title !== 'No Match in progress..') {
+      console.log(matches);
+      if (matches.data[0].title !== 'No Match in progress..') {
         this.OldMatchdata = [...matches.data];
         this.FilterData = this.OldMatchdata;
       }

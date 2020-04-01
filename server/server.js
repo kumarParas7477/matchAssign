@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
 });
 
 mongoose
-  .connect("mongodb://localhost:27017/userDocument", {
+  .connect("mongodb://localhost:27017/userDocument2", {
     useNewUrlParser: true,
     useFindAndModify: false
   })

@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   NewMatchData: any[] = [];
   FilterData: any[] = [];
   _enteredtext: string;
-
+  myFavourites: any[] = [];
   favourite: any[] = [];
   // tslint:disable-next-line:variable-name
   constructor(private _router: Router, private _matchdata: GetmatchdataService, private _getUser: GetREgisteredUsersService, private _shareService: ShareDataServiceService) { }
@@ -29,23 +29,33 @@ export class NavbarComponent implements OnInit {
 
     this._getUser.getProfiles().subscribe((user: any) => {
       user.map((userData: any) => {
+
+        if (userData._id == sessionStorage.getItem('_id')) {
+          this.myFavourites = [...userData.favourites];
+          this._shareService.setMyfavourites(this.myFavourites);
+        }
+
         userData.favourites.map((datas: any) => {
           if (datas.unique_id !== undefined)
-
             this.favourite.push(datas);
         })
-
-
       })
       this._shareService.setFavourites(this.favourite);
-
 
     })
   }
 
   logout() { sessionStorage.clear(); this._router.navigate(['/public']); }
   reload() { this._router.navigate(['/private']); }
-  naviToRec() { this._router.navigate(['private/recommend']); }
-  naviToOldMatch() { this._router.navigate(['private/oldMatch']); }
+  nav(route: string) {
+    if (route == 'rec') { this._router.navigate(['private/recommend']); }
+    else if (route == 'old') {
+      this._router.navigate(['private/oldMatch']);
+    }
+    else {
+      this._router.navigate(['private/myFavourites'])
+    }
+  }
+
 
 }

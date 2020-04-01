@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   profiles: IProfile[];
   ngOnInit() {
     sessionStorage.clear();
-
     // tslint:disable-next-line: whitespace
     this._service.getProfiles().subscribe((data: IProfile[]) => {
       this.profiles = data;
@@ -64,12 +63,14 @@ export class LoginComponent implements OnInit {
     this.username = this.LoginForm.value.username;
 
     this.profiles.map((data: any) => {
+      console.log(data._id);
       if (
-        data.Username.split('@')[0].toLowerCase() == this.LoginForm.value.username.split('@')[0].toLowerCase() &&
-        data.Username.split('@')[1] == this.LoginForm.value.username.split('@')[1] &&
+
+        (data.Username.localeCompare(this.username) == 1 || 0) &&
         data.password == this.LoginForm.value.password
       ) {
-        sessionStorage.setItem('username', this.username);
+        console.log(data._id);
+        sessionStorage.setItem('_id', data._id);
         this._router.navigate(['/private']);
       }
       else {

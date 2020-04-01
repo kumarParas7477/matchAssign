@@ -7,7 +7,8 @@ import { IRecomm } from '../modules/private/model/recomm.model';
 })
 export class ShareDataServiceService {
   Users: IProfile[];
-  favourites: any[] = []
+  favourites: any[] = [];
+  myFavourites: any[] = [];
   recomm: IRecomm = { match: Object, frequency: 0 }
   recommedation: IRecomm[] = [];
   constructor() { }
@@ -45,5 +46,12 @@ export class ShareDataServiceService {
 
   public getFavourites(): any[] {
     return this.recommedation;
+  }
+
+  public setMyfavourites(favourites: any[]) {
+    this.myFavourites = [...favourites];
+  }
+  public getMyfavourites(): any[] {
+    return this.myFavourites;
   }
 }

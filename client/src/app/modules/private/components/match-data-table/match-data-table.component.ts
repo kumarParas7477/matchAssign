@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
 import { GetmatchdataService } from "../../services/getmatchdata.service";
+import { ShareDataServiceService } from '../../../../sharedModule/share-data-service.service';
+
 
 
 @Component({
@@ -9,26 +11,42 @@ import { GetmatchdataService } from "../../services/getmatchdata.service";
 })
 export class MatchDataTableComponent implements OnInit {
   @Input()
-  NewMatchData: any;
-  FilterData: any;
+  NewMatchData: any[] = [];
+  myFavourites: any[] = [];
+  FilterData: any[] = [];
   _enteredtext: string;
-  constructor(private _matchService: GetmatchdataService) { }
+  constructor(private _matchService: GetmatchdataService, private _shareservice: ShareDataServiceService) { }
 
   ngOnInit() {
-    this.FilterData = this.NewMatchData;
+
+
   }
-  addToFavourites(match: any) {
-    this._matchService.addToFavourites(sessionStorage.getItem('username'), match).subscribe((data: any) => {
-      console.log(data);
+  ngOnChanges(changes: SimpleChanges) {
+
+    this.myFavourites = this._shareservice.getMyfavourites();
+    this.NewMatchData.map((a: any) => {
+      this.myFavourites.map((data: any) => {
+        if (data.unique_id == a.unique_id) {
+          a.added = true;
+        }
+      })
+      this.FilterData.push(a);
     })
   }
+  addToFavourites(match: any) {
+    this._matchService.addToFavourites(sessionStorage.getItem('_id'), match).subscribe((data: any) => {
+
+
+    })
+  }
+
   getDate(name: string) {
     return (new Date(name).getDate().toString() + '-' + new Date(name).getMonth().toString() + '-' + new Date(name).getFullYear().toString()).toString()
   }
 
   set enteredtext(newValue: string) {
     this._enteredtext = newValue;
-    console.log(newValue);
+
     this.FilterData = this._enteredtext ? this.filter(this._enteredtext) : this.NewMatchData;
   }
   filter(filtertext: string) {
