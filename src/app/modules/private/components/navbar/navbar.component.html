@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div style="border-style:ridge">
+  <nav class="navbar  navbar-expand-lg navbar-light">
+    <ul class="navbar-nav ">
+      <img src="./../../../../../assets/ball.jpg" alt="" class="rotate" style="height: 40px;width: 40px">
+      <img src="./../../../../../assets/bat.jpg" alt="" class="rotate" style="height: 40px;width: 40px">
+      <li class="nav-item  ">
+
+        <a class="navbar-brand" style="font-weight: bolder;color: black;font-size:20px" (click)='reload()'>Cric</a>
+
+      </li>
+      <li> <a class="nav-link" style="font-weight: bold;color: black" routerLink="/private/oldMatch">Old_Matches </a>
+      </li>
+
+      <li> <a class="nav-link" style="font-weight: bold;color: black" routerLink="/private/myFavourites">Favourites
+        </a></li>
+
+      <li> <a class="nav-link" style="font-weight: bold;color: black" routerLink="/private/recommend">Recommendations
+        </a></li>
+
+      <li>
+        <a class="list-inline-item"> <button style="text-align: right;" class="btn btn-lg btn-danger"
+            (click)='logout()'>Logout</button></a>
+      </li>
+    </ul>
+
+  </nav>
+</div>
+
+
+<router-outlet></router-outlet>
+<!-- <app-landing-page [NewMatchData]='FilterData'></app-landing-page> -->

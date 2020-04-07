@@ -1,0 +1,41 @@
+<div>
+  <h1 class='bg-dark' style="text-align: center;color: white;">Table View</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Sr.</th>
+        <th>Date</th>
+        <th>Team1</th>
+
+        <th>Team2</th>
+        <th>Type</th>
+        <!-- <th>Toss Winner</th>
+          <th>Winner</th> -->
+        <th>
+          <!-- <input 
+              > -->
+          <input [(ngModel)]="enteredtext" type='text' placeholder="India" (change)='filter'
+            class="form-control mr-sm-2"
+            style="border-radius: 15px ;background-color:white;color: azure;font-size: 10px;color: black "
+            aria-label="Search">
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of FilterData; let i = index">
+        <th>{{i+1}}</th>
+        <td><strong>{{ getDate(item['date']) }}</strong></td>
+        <td><strong>{{ item['team-1']}}</strong></td>
+        <td><strong>{{ item['team-2']}}</strong></td>
+        <td><strong>{{ item.type }}</strong></td>
+        <!-- <td><strong>{{ item.toss_winner_team }}</strong></td>
+          <td><strong>{{ item.winner_team }}</strong></td> -->
+        <td *ngIf="!item.added"><button class="btn btn-primary" (click)='addToFavourites(item)'><strong>Add To
+              FAVOURITES</strong>
+          </button></td>
+        <td *ngIf="item.added"><button class="btn btn-primary" disabled><strong>Added</strong>
+          </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

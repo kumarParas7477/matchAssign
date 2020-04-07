@@ -1,0 +1,29 @@
+div {
+  
+   overflow: auto; 
+ height: 20;
+  font-size: 16px;
+   padding: 10;
+}
+ @media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+  
+} 
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+
+
+ 

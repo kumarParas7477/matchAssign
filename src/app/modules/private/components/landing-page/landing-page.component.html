@@ -1,0 +1,19 @@
+<div *ngIf="show" style="margin-top: 10px">
+  <div class="container">
+    <div class=".btn-group">
+      <button class="btn-dark btn-lg" (click)='setTableView()'>Table</button>
+      <button class="btn-dark btn-lg" (click)='setCalView()'>Calender</button>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <div *ngIf="tableView">
+      <app-match-data-table [NewMatchData]="NewMatchData"></app-match-data-table>
+    </div>
+    <div *ngIf="calenderView">
+      <mwl-demo-component [data]='NewMatchData'>Loading...</mwl-demo-component>
+    </div>
+  </div>
+</div>

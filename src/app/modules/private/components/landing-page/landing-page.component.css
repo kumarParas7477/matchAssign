@@ -1,0 +1,19 @@
+body {
+  font-size: 15px;
+  
+}
+.table-dark {
+  border: 12px;
+}
+button{
+  cursor: pointer;
+}
+.container {
+  margin: 0 auto;
+  padding-top: 10px;
+  border-style: groove;
+}
+.btn-group{
+  border:10px;
+  border-radius: 12px;
+}

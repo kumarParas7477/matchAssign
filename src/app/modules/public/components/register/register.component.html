@@ -1,0 +1,96 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+  <h1 class="text-center text-white pt-5">Register Here</h1>
+  <div id="login">
+
+    <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+          <div id="login-box" class="col-md-12">
+            <div class="card-header">
+              {{pageTitle}}
+            </div>
+
+            <div class="card-body">
+              <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+
+                <div class="form-group row mb-2">
+                  <label class="col-md-3 col-form-label" for="username">
+                    <h4>Username</h4>
+                  </label>
+                  <div class="col-md-8">
+                    <input class="form-control" style="width: 300px" id="username" type="text"
+                      placeholder="Name (required)" formControlName="Username" />
+                    <!-- [ngClass]="{'is-invalid': displayMessage.username }" /> -->
+                    <!-- <span class="invalid-feedback">
+  {{displayMessage.productName}}
+  </span> -->
+                  </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                  <label class="col-md-3 col-form-label" for="firstname">
+                    <h4>First Name</h4>
+                  </label>
+                  <div class="col-md-8">
+                    <input style="width: 300px" class="form-control" id="firstname" type="text"
+                      placeholder="firstname (required)" formControlName="firstname" />
+
+                  </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                  <label class="col-md-3 col-form-label" for="lastname">
+                    <h4>Last Name</h4>
+                  </label>
+
+                  <div class="col-md-8">
+                    <input style="width: 300px" class="form-control" id="lastname" type="text"
+                      placeholder="Chopra Jonas" formControlName="lastname" />
+
+                  </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                  <label class="col-md-3 col-form-label" for="password">
+                    <h4>Password</h4>
+                  </label>
+
+                  <div class="col-md-8">
+                    <input style="width: 300px" class="form-control" id="password" type="password"
+                      placeholder="Password" formControlName="password" />
+                  </div>
+
+                </div>
+                <br>
+                <br>
+                <div class="form-group row mb-2">
+                  <div class="offset-md-2 col-md-6">
+                    <button class="btn btn-primary mr-3" type="submit"
+                      [title]="profileForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                      [disabled]="!profileForm.valid">
+                      <h3>
+                        Save</h3>
+                    </button>
+
+                    <button class="btn btn-outline-secondary mr-3" type="button" title="Cancel your edits"
+                      routerLink="/public">
+                      <h3>
+                        Cancel</h3>
+                    </button>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
