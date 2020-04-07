@@ -33,18 +33,13 @@ export class MatchDataTableComponent implements OnInit {
           this.show = true;
         }
       })
-      console.log(this.NewMatchData);
-      console.log(this.FilterData);
-      console.log(this.myfavourite);
     })
 
-
-    console.log(this.FilterData);
   }
 
 
   addToFavourites(match: any) {
-    console.log(match);
+
     this._matchService.addToFavourites(match).subscribe((data: any) => {
       console.log(data);
 

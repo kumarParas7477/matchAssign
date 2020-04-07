@@ -11,8 +11,10 @@ import { GetREgisteredUsersService } from '../../service/get-registered-users.se
 })
 export class RegisterComponent implements OnInit {
   profileForm: FormGroup;
+  
   Id: number;
   username: any;
+ 
   constructor(private fb: FormBuilder, private _createProfile: GetREgisteredUsersService, private _router: Router) { }
   ngOnInit(): void {
 
@@ -21,7 +23,7 @@ export class RegisterComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       password: ['', Validators.required],
-
+      Confirmpassword:['',Validators.required]
     });
   }
 
@@ -31,20 +33,20 @@ export class RegisterComponent implements OnInit {
 
 
   saveProfile() {
+    if(this.profileForm.value.password != this.profileForm.value.Confirmpassword){
+      alert('Passwords dont match');
+    }
+    else{
     this.username = this.profileForm.value.Username.split('@');
-
     this.profileForm.value.Username = this.username[0].toLocaleLowerCase() + '@' + this.username[1].toLocaleLowerCase()
-
-
-
     this._createProfile.createProfile(this.profileForm.value).subscribe(data => (data));
     alert("You have Registered");
-    setTimeout(() => {
+  
       this._router.navigate(['/public']);
 
-    }, 2000);
+    }
 
   }
-
+  
 
 }
