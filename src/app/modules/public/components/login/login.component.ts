@@ -38,11 +38,17 @@ export class LoginComponent implements OnInit {
 
 
     this.LoginForm = this.fb.group({
-      userId: ['', [Validators.required, EmailValidator]],
+      userId: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
+  get primaryEmail() {
+    return this.LoginForm.get('userId');
+  }
+  // validateEmail(){
+  //   if(this.LoginForm.value.userId.)
+  // }
   disableLogin() {
     if (
       this.LoginForm.value.userId == '' ||
@@ -71,4 +77,8 @@ export class LoginComponent implements OnInit {
 
 
   }
+
+
+
+
 }

@@ -22,12 +22,11 @@
                     <h4>Username</h4>
                   </label>
                   <div class="col-md-8">
-                    <input class="form-control" style="width: 300px" id="username" type="text"
-                      placeholder="Name (required)" formControlName="Username" />
-                    <!-- [ngClass]="{'is-invalid': displayMessage.username }" /> -->
-                    <!-- <span class="invalid-feedback">
-  {{displayMessage.productName}}
-  </span> -->
+                    <input class="form-control" style="width: 300px" id="username" type="email"
+                      placeholder="JonSnow@targaryen.com" formControlName="Username" required />
+                    <div class="alert-danger" *ngIf="UserId.errors?.email">
+                      Email Address not valid.
+                    </div>
                   </div>
                 </div>
 
@@ -36,8 +35,8 @@
                     <h4>First Name</h4>
                   </label>
                   <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="firstname" type="text"
-                      placeholder="firstname (required)" formControlName="firstname" />
+                    <input style="width: 300px" class="form-control" id="firstname" type="text" placeholder="Jon"
+                      formControlName="firstname" required />
 
                   </div>
                 </div>
@@ -48,8 +47,8 @@
                   </label>
 
                   <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="lastname" type="text"
-                      placeholder="Chopra Jonas" formControlName="lastname" />
+                    <input style="width: 300px" class="form-control" id="lastname" type="text" placeholder="Snow"
+                      formControlName="lastname" required />
 
                   </div>
                 </div>
@@ -61,19 +60,22 @@
 
                   <div class="col-md-8">
                     <input style="width: 300px" class="form-control" id="password" type="password"
-                      placeholder="Password" formControlName="password" />
+                      placeholder="Password" formControlName="password" required />
                   </div>
 
                 </div>
-                
+
                 <div class="form-group row mb-2">
                   <label class="col-md-3 col-form-label" for="Confirmpassword">
                     <h4>Confirm Password</h4>
                   </label>
 
                   <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="Confirmpassword" type="text"
-                      placeholder="Password" formControlName="Confirmpassword" />
+                    <input style="width: 300px" class="form-control" id="Confirmpassword" type="password"
+                      placeholder="Password" formControlName="Confirmpassword" required />
+                    <div *ngIf="profileForm.controls['Confirmpassword'].dirty">
+                      <div class="alert-danger" *ngIf="match()">Passwords dont match!</div>
+                    </div>
                   </div>
 
                 </div>
@@ -82,7 +84,7 @@
                 <div class="form-group row mb-2">
                   <div class="offset-md-2 col-md-6">
                     <button class="btn btn-primary mr-3" type="submit"
-                      [title]="profileForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                      [title]="profileForm.valid ? 'Save your entered data' : 'All Fields are required'"
                       [disabled]="!profileForm.valid">
                       <h3>
                         Save</h3>

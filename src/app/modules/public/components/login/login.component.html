@@ -25,13 +25,18 @@
                 <div *ngIf="
                     LoginForm.controls['userId'].invalid &&
                     (LoginForm.controls['userId'].dirty ||
-                      LoginForm.controls['userId'].touched)
+                      LoginForm.controls['userId'].touched) 
                   " class="alert-danger">
-                  <div *ngIf="LoginForm.controls['userId'].errors.required">
+                  <div *ngIf="LoginForm.controls['userId'].errors.required ">
                     Please Enter User Name
 
                   </div>
+                  <div *ngIf="primaryEmail.errors?.email">
+                    Email Address not valid.
+                  </div>
+
                 </div>
+
               </div>
               <div class="form-group">
                 <span>
