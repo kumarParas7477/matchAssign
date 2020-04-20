@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import 'flatpickr/dist/flatpickr.css';
 import { CommonModule } from "@angular/common";
 import { LandingPageComponent } from "./components/landing-page/landing-page.component";
@@ -18,6 +18,8 @@ import { DemoComponent } from "./components/calendar-component/calendar-componen
 import { DemoUtilsModule } from "./components/calendar-util/calendar-utils.module";
 import { OldMatchComponent } from './components/old-match/old-match.component';
 import { MyFavouuritesComponent } from './components/my-favouurites/my-favouurites.component';
+import { GetmatchdataService } from './services/getmatchdata.service';
+import { PrivateguardGuard } from './services/privateguard.guard';
 
 
 
@@ -36,7 +38,8 @@ import { MyFavouuritesComponent } from './components/my-favouurites/my-favouurit
       useFactory: adapterFactory
     }),
     DemoUtilsModule
-  ]
+  ],
+  providers: [GetmatchdataService, PrivateguardGuard]
 
 })
 export class PrivateModule { }

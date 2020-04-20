@@ -9,7 +9,7 @@ export class ShareDataServiceService {
   data: any[];
   constructor() { }
   public saveData(data: any[]) {
-    console.log(data);
+
     data.sort((a, b) => {
       return b.recommendationScore - a.recommendationScore;
     });

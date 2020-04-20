@@ -9,10 +9,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class GetREgisteredUsersService {
   constructor(private _http: HttpClient) { }
 
-  public checkProfile(profile: any): Observable<IProfile[]> {
+  public checkProfile(profile: any): Observable<any[]> {
     console.log(profile);
     const headers = new HttpHeaders({ "content-Type": "application/json" });
-    return this._http.post<IProfile[]>("http://localhost:8081/auth/v1/login", profile,
+    return this._http.post<any[]>("http://localhost:8081/auth/v1/login", profile,
       { headers });
   }
 

@@ -10,7 +10,7 @@ export class PrivateguardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (sessionStorage.getItem('Authorization')) {
+    if (sessionStorage.getItem('Authorization') != null) {
       return true;
     }
     else {

@@ -1,6 +1,10 @@
 body{
     background-color: lightgray;
-    border: 10px;
-    border-style: solid
     
+    
+}
+.container{
+    border: 2px;
+    border-style: ridge;
+    margin-top: 10px
 }

@@ -1,17 +1,8 @@
-div {
+a{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
   
-   overflow: auto; 
- height: 20;
-  font-size: 16px;
-   padding: 10;
 }
- @media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-  
-} 
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -24,6 +15,18 @@ div {
   animation: rotation 8s infinite linear;
 }
 
-
+nav{
+  border: 10px;
+  border-style: double
+}
 
  
+.text-style{
+  color: cornsilk;
+}
+
+
+
+a:hover{
+ cursor: pointer;
+}

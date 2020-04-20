@@ -3,10 +3,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <body>
-  <h1 class="text-center text-white pt-5">Register Here</h1>
-  <div id="login">
 
-    <div class="container">
+  <div class="container">
+    <h1 class="text-center text-dark pt-5">Register Here</h1>
+    <div id="login">
+
       <div id="login-row" class="row justify-content-center align-items-center">
         <div id="login-column" class="col-md-6">
           <div id="login-box" class="col-md-12">
@@ -18,12 +19,12 @@
               <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
 
                 <div class="form-group row mb-2">
-                  <label class="col-md-3 col-form-label" for="username">
+                  <label class="col-md-3 col-lg-3 col-sm-3 col-form-label" for="username">
                     <h4>Username</h4>
                   </label>
-                  <div class="col-md-8">
-                    <input class="form-control" style="width: 300px" id="username" type="email"
-                      placeholder="JonSnow@targaryen.com" formControlName="Username" required />
+                  <div class="col-md-8 col-lg-8 col-sm-8">
+                    <input class="form-control" id="username" type="email" placeholder="JonSnow@targaryen.com"
+                      formControlName="Username" required />
                     <div class="alert-danger" *ngIf="UserId.errors?.email">
                       Email Address not valid.
                     </div>
@@ -34,9 +35,9 @@
                   <label class="col-md-3 col-form-label" for="firstname">
                     <h4>First Name</h4>
                   </label>
-                  <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="firstname" type="text" placeholder="Jon"
-                      formControlName="firstname" required />
+                  <div class="col-md-8 col-lg-8 col-sm-8">
+                    <input class="form-control" id="firstname" type="text" placeholder="Jon" formControlName="firstname"
+                      required />
 
                   </div>
                 </div>
@@ -46,9 +47,9 @@
                     <h4>Last Name</h4>
                   </label>
 
-                  <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="lastname" type="text" placeholder="Snow"
-                      formControlName="lastname" required />
+                  <div class="col-md-8 col-lg-8 col-sm-8">
+                    <input class="form-control" id="lastname" type="text" placeholder="Snow" formControlName="lastname"
+                      required />
 
                   </div>
                 </div>
@@ -58,9 +59,9 @@
                     <h4>Password</h4>
                   </label>
 
-                  <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="password" type="password"
-                      placeholder="Password" formControlName="password" required />
+                  <div class="col-md-8 col-lg-8 col-sm-8">
+                    <input class="form-control" id="password" type="password" placeholder="Password"
+                      formControlName="password" required />
                   </div>
 
                 </div>
@@ -70,9 +71,9 @@
                     <h4>Confirm Password</h4>
                   </label>
 
-                  <div class="col-md-8">
-                    <input style="width: 300px" class="form-control" id="Confirmpassword" type="password"
-                      placeholder="Password" formControlName="Confirmpassword" required />
+                  <div class="col-md-8 col-lg-8 col-sm-8">
+                    <input class="form-control" id="Confirmpassword" type="password" placeholder="Password"
+                      formControlName="Confirmpassword" required />
                     <div *ngIf="profileForm.controls['Confirmpassword'].dirty">
                       <div class="alert-danger" *ngIf="match()">Passwords dont match!</div>
                     </div>
@@ -85,7 +86,7 @@
                   <div class="offset-md-2 col-md-6">
                     <button class="btn btn-primary mr-3" type="submit"
                       [title]="profileForm.valid ? 'Save your entered data' : 'All Fields are required'"
-                      [disabled]="!profileForm.valid">
+                      [disabled]="!profileForm.valid  || confirmCheck()">
                       <h3>
                         Save</h3>
                     </button>

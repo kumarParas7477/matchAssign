@@ -15,13 +15,15 @@ export class MyFavouuritesComponent implements OnInit {
   ngOnInit() {
     this._matchService.getMyFavourites().subscribe((data: any) => {
       this.myFavourites = [...data];
-      console.log(data);
+
     });
 
   }
   getDate(name: string) {
     return (new Date(name).getDate().toString() + '-' + new Date(name).getMonth().toString() + '-' + new Date(name).getFullYear().toString()).toString();
   }
+
+
 
 }
 

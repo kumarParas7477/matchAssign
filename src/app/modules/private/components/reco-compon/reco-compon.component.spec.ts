@@ -8,9 +8,9 @@ describe('RecoComponComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecoComponComponent ]
+      declarations: [RecoComponComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,11 @@ describe('RecoComponComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should render title in a h1 tag', () => {
+    const fixture = TestBed.createComponent(RecoComponComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'RECOMMENDATIONS');
+  })
 });

@@ -37,7 +37,7 @@ export class GetmatchdataService {
   }
 
   public getMyFavourites(): Observable<any> {
-    console.log(sessionStorage.getItem('username'));
+
     return this._http.get<any>(`http://localhost:8082/api/v1/match/favoriteMatches/${sessionStorage.getItem('username')}`);
   }
 

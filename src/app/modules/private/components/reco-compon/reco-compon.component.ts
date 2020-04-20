@@ -21,7 +21,7 @@ export class RecoComponComponent implements OnInit {
 
 
     this.recommendation = [...this._shareService.getData()];
-    console.log(this.recommendation);
+
     this.show = true;
   }
 
@@ -33,7 +33,17 @@ export class RecoComponComponent implements OnInit {
       console.log(data);
     })
   }
+  check(item: any) {
 
+    let found = item.favoriteList.indexOf(sessionStorage.getItem('userId').toString())
+    if (found) {
+
+      return true;
+
+    }
+    else { return false }
+
+  }
 
 
 }

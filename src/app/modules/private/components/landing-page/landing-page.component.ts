@@ -21,10 +21,7 @@ export class LandingPageComponent implements OnInit {
       this.NewMatchData = [...data];
       this.show = true
     });
-    this._matchdata.getRecommendation().subscribe((data: any[]) => {
-      this._shareService.saveData(data);
 
-    })
   }
   setTableView() {
     this.tableView = true;

@@ -5,12 +5,12 @@ import { MyFavouuritesComponent } from './my-favouurites.component';
 describe('MyFavouuritesComponent', () => {
   let component: MyFavouuritesComponent;
   let fixture: ComponentFixture<MyFavouuritesComponent>;
- 
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyFavouuritesComponent ]
+      declarations: [MyFavouuritesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,10 +19,20 @@ describe('MyFavouuritesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+  it('should be able to convert to appropriate date', () => {
+    const fixture = TestBed.createComponent(MyFavouuritesComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(this.getDate('2020-04-05T05:00:00.000+0000')).toEqual('05-04-2020');
   });
-  it('should be able to add a whole number and a zero', () => {
-    expect( this.getDate('2020-04-05T05:00:00.000+0000')).toEqual('05-04-2020');
-  });
+  it('should render title in a h1 tag', () => {
+    const fixture = TestBed.createComponent(MyFavouuritesComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Favourites');
+  })
 });

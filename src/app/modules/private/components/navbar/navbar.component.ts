@@ -17,11 +17,15 @@ export class NavbarComponent implements OnInit {
   _enteredtext: string;
   myFavourites: any[] = [];
   favourite: any[] = [];
+  isWait: boolean = false
   // tslint:disable-next-line:variable-name
   constructor(private _router: Router, private _matchdata: GetmatchdataService, private _getUser: GetREgisteredUsersService, private _shareService: ShareDataServiceService) { }
 
   ngOnInit() {
-
+    this._matchdata.getRecommendation().subscribe((data: any[]) => {
+      this._shareService.saveData(data);
+      this.isWait = true;
+    })
   }
 
   logout() { sessionStorage.clear(); this._router.navigate(['/public']); }

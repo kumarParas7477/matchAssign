@@ -5,6 +5,8 @@ import { RegisterComponent } from "./components/register/register.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { PublicRoutingModule } from "./public-routing.module";
+import { GetREgisteredUsersService } from './service/get-registered-users.service';
+import { PublicGuardGuard } from "./service/public-guard.guard";
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [
@@ -13,6 +15,6 @@ import { PublicRoutingModule } from "./public-routing.module";
     ReactiveFormsModule,
     HttpClientModule,
     PublicRoutingModule
-  ]
+  ], providers: [GetREgisteredUsersService, PublicGuardGuard]
 })
-export class PublicModule {}
+export class PublicModule { }
