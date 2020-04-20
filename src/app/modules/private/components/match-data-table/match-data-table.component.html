@@ -29,7 +29,8 @@
         <td><strong>{{ item['team-2']}}</strong></td>
         <td><strong>{{ item.type }}</strong></td>
 
-        <td *ngIf="!item.added"><button class="btn btn-sm btn-primary" (click)='addToFavourites(item)'>Add To Favourites
+        <td *ngIf="!item.added"><button id='favouriteButton' class="btn btn-sm btn-primary"
+            (click)='addToFavourites(item)'>Add To Favourites
           </button></td>
 
         <td *ngIf="item.added"><button class="btn btn-sm btn-primary" disabled>Added

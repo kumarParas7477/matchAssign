@@ -1,14 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyFavouuritesComponent } from './my-favouurites.component';
-
+import { HttpClient } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 describe('MyFavouuritesComponent', () => {
   let component: MyFavouuritesComponent;
   let fixture: ComponentFixture<MyFavouuritesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MyFavouuritesComponent]
+      declarations: [MyFavouuritesComponent],
+      imports: [HttpClient],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));

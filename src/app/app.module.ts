@@ -22,6 +22,7 @@ import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+
     HttpClientModule,
     // MatProgressSpinnerModule,
     FlatpickrModule.forRoot(),

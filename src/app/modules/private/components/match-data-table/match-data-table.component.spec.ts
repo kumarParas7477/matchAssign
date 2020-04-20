@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatchDataTableComponent } from './match-data-table.component';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
+import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
+import { By } from '@angular/platform-browser';
 
 describe('MatchDataTableComponent', () => {
   let component: MatchDataTableComponent;
@@ -21,14 +24,14 @@ describe('MatchDataTableComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+
+
   it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(MatchDataTableComponent);
-    fixture.detectChanges();
+
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain(
       'Table View');
   })
+
+
 });

@@ -66,7 +66,6 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('username', this.LoginForm.value.userId);
     this._service.checkProfile(this.LoginForm.value).subscribe((data: any) => {
       if (data.token != undefined) {
-        console.log(data.token)
         sessionStorage.setItem("Authorization", data.token);
         sessionStorage.setItem('userId', this.LoginForm.value.userId);
         this._router.navigate(['/private']);
