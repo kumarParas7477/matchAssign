@@ -86,7 +86,7 @@
                   <div class="offset-md-2 col-md-6">
                     <button class="btn btn-primary mr-3" type="submit"
                       [title]="profileForm.valid ? 'Save your entered data' : 'All Fields are required'"
-                      [disabled]="!profileForm.valid  || confirmCheck()">
+                      [disabled]="!profileForm.valid  || match()">
                       <h3>
                         Save</h3>
                     </button>

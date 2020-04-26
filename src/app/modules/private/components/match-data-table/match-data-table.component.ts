@@ -13,6 +13,7 @@ export class MatchDataTableComponent implements OnInit {
   myfavourite: any[] = [];
   FilterData: any[] = [];
   _enteredtext: string;
+
   name: string = sessionStorage.getItem('userId').toString();
   show = false;
   constructor(private _matchService: GetmatchdataService) { }
@@ -25,7 +26,7 @@ export class MatchDataTableComponent implements OnInit {
       } else { data.added = false; }
 
       this.FilterData.push(data);
-      if (this.FilterData.length === this.NewMatchData.length) {
+      if (this.FilterData.length == this.NewMatchData.length) {
         this.show = true;
       }
     });
@@ -43,7 +44,13 @@ export class MatchDataTableComponent implements OnInit {
 
 
   getDate(name: string) {
-    return (new Date(name).getDate().toString() + '-' + new Date(name).getMonth().toString() + '-' + new Date(name).getFullYear().toString()).toString();
+    console.log(name);
+    console.log(new Date(name).getMonth().toString());
+
+    let todaydate = new Date(name).getDate() < 10 ? "0" + new Date(name).getDate().toString() : new Date(name).getDate().toString();
+    let month = (new Date(name).getMonth() + 1) < 10 ? "0" + (new Date(name).getMonth() + 1).toString() : (new Date(name).getMonth() + 1).toString();
+    let year = new Date(name).getFullYear();
+    return (todaydate + "-" + month + "-" + year);
   }
 
   set enteredtext(newValue: string) {

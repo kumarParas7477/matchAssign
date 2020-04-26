@@ -26,13 +26,7 @@ export class RegisterComponent implements OnInit {
       Confirmpassword: ['', [Validators.required]]
     });
   }
-  confirmCheck() {
-    if (this.profileForm.value.password == this.profileForm.value.Confirmpassword)
-      return false;
 
-    else return true;
-
-  }
   get function() {
     return this.profileForm.controls;
   }
