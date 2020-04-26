@@ -9,11 +9,14 @@ button{
   cursor: pointer;
 }
 .container {
-  
+/*   
   padding-top: 10px;
-  border-style: groove;
+  border-style: groove; */
+  font-family: cursive;
+  font-weight: bold
 }
-.btn-group{
+.btn-group-lg{
   border:10px;
   border-radius: 12px;
+  
 }

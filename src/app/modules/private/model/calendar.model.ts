@@ -1,4 +1,3 @@
-import { colors } from '../components/calendar-util/color';
 export interface ICalendarEvent {
 
     start: Date,

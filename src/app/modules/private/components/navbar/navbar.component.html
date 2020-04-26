@@ -1,82 +1,47 @@
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!--
-<div style="border-style:ridge">
-  <nav class="navbar  navbar-expand-lg navbar-light fixed-top">
-    <div class="navbar-nav ">
-      <img src="./../../../../../assets/ball.jpg" alt="" class="rotate" style="height: 40px;width: 40px">
-      <img src="./../../../../../assets/bat.jpg" alt="" class="rotate" style="height: 40px;width: 40px">
+<nav class="navbar bg-dark navbar-expand-md navbar-dark position-sticky">
 
+  <div class="black pull-left"> <img src="./../../../../../assets/ball-removebg-preview.png" alt="" class="rotate "
+      style="height: 30px;width: 30px;">
 
-      <a class="navbar-brand" style="font-weight: bolder;color: black;font-size:20px" (click)='reload()'>Cric</a>
-
-      <a class="nav-link" style="font-weight: bold;color: black" routerLink="/private/oldMatch">Old_Matches </a>
-
-
-      <a class="nav-link" style="font-weight: bold;color: black" routerLink="/private/myFavourites">Favourites
-      </a>
-
-
-      <a class="nav-link" style="font-weight: bold;color: black" routerLink="/private/recommend">Recommendations
-      </a>
-
-
-      <a class="list-inline-item"> <button style="text-align: right;" class="btn btn-lg btn-danger"
-          (click)='logout()'>Logout</button></a>
-
-    </div>
-
-  </nav>
-</div> -->
-
-
-<nav class="navbar navbar-expand-md navbar-light fixed-top">
-
-  <div class="col-lg-12 col-sm-12  col-md-12">
-    <div class=" col-lg-4 col-sm-4  col-md-4">
-      <img src="./../../../../../assets/ball.jpg" alt="" class="rotate"
-        style="height: 30px;width: 30px;shape-outside: circle()">
-
-      <a (click)='reload()' class=" font-italic text-dark" style="font-size: 20px;font-weight: bold">
-        Cric
-      </a>
-    </div>
-
-
-    <ul class="d-none d-md-block navbar-nav navbar-right col-lg-8 col-sm- col-md-8  " style="margin-left:5px">
-      <li class=" nav-item btn font-weight-bold text-style col-lg-2 col-sm-2 col-md-2"><a
-          routerLink="/private/oldMatch">Old_Matches </a> </li>
-      <li class="nav-item btn font-weight-bold text-style col-lg-2 col-sm-2 col-md-2"> <a
-          routerLink="/private/myFavourites">Favourites </a>
-      </li>
-      <li class="nav-item btn font-weight-bold text-style col-lg-2 col-sm-2 col-md-2"> <a
-          routerLink="/private/recommend">Recommendations </a>
-      </li>
-      <li class="nav-item btn font-weight-bold text-style col-lg-2 col-sm-2 col-md-2"> <button
-          class="btn btn-sm btn-warning" (click)='logout()'>Logout</button></li>
-    </ul>
-
-
-    <div style="margin: 0%">
-      <button class="navbar-toggler navbar-nav navbar-left d-md-none " type="button" data-toggle="collapse"
-        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <ul class="collapse" id="navbarToggleExternalContent" style="padding-left: 20%;">
-        <li class="nav-item btn font-weight-bold text-style"><a routerLink="/private/oldMatch">Old_Matches </a> </li>
-        <li class="nav-item btn font-weight-bold text-style"> <a routerLink="/private/myFavourites">Favourites </a>
-        </li>
-        <li class="nav-item btn font-weight-bold text-style"> <a routerLink="/private/recommend">Recommendations </a>
-        </li>
-        <li class="nav-item btn font-weight-bold text-style"> <button style="height: 40px;"
-            class="btn btn-sm btn-danger" (click)='logout()'>Logout</button></li>
-      </ul>
-    </div>
+    <a (click)='reload()' class="text-light " style="font-size: 20px;font-weight: bold;">
+      Cric
+    </a>
   </div>
+
+
+
+  <ul class="d-none d-md-block navbar-nav navbar-right pull-right " style="float:right">
+    <li class=" nav-item btn font-weight-bold text-style "><a routerLink="/private/oldMatch">Old_Matches </a> </li>
+    <li class="nav-item btn font-weight-bold text-style "> <a routerLink="/private/myFavourites">Favourites </a>
+    </li>
+    <li class="nav-item btn font-weight-bold text-style "> <a routerLink="/private/recommend">Recommendations </a>
+    </li>
+    <li class="font-weight-bold  pull-right"> <button class="btn btn-sm btn-warning"
+        style="font-family: cursive;margin-left: 1000px" (click)='logout()'>Logout</button>
+    </li>
+  </ul>
+
+  <button class="navbar-toggler navbar-nav  d-md-none pull-right " type="button" data-toggle="collapse"
+    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div>
+
+    <ul class="collapse " id="navbarToggleExternalContent">
+      <li class="nav-item  font-weight-bold text-style"><a routerLink="/private/oldMatch">Old_Matches </a> </li>
+      <li class="nav-item  font-weight-bold text-style"> <a routerLink="/private/myFavourites">Favourites </a>
+      </li>
+      <li class="nav-item  font-weight-bold text-style"> <a routerLink="/private/recommend">Recommendations </a>
+      </li>
+      <li class="nav-item  font-weight-bold text-style "> <button class="btn btn-sm btn-warning"
+          style="font-family: cursive" (click)='logout()'>Logout</button></li>
+    </ul>
+  </div>
+
+
 </nav>
 
 

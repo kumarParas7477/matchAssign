@@ -9,10 +9,6 @@ export class ShareDataServiceService {
   data: any[];
   constructor() { }
   public saveData(data: any[]) {
-
-    data.sort((a, b) => {
-      return b.recommendationScore - a.recommendationScore;
-    });
     this.data = data;
   }
   public getData(): any[] {

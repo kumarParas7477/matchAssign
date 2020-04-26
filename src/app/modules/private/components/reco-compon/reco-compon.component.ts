@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
-import { IRecomm } from '../../model/recomm.model';
 import { ShareDataServiceService } from '../../../../sharedModule/share-data-service.service';
 import { GetmatchdataService } from '../../services/getmatchdata.service';
+
 
 
 
@@ -13,35 +13,47 @@ import { GetmatchdataService } from '../../services/getmatchdata.service';
 })
 export class RecoComponComponent implements OnInit {
   show: boolean = false;
-
-  recommendation: IRecomm[] = [];
+  name: string = sessionStorage.getItem('userId').toString();
+  recommendations: any[] = [];
+  recommendation: any[] = [];
   constructor(private _matchService: GetmatchdataService, private _shareService: ShareDataServiceService) { }
 
   ngOnInit() {
+    this.recommendations = this._shareService.getData();
+
+    this.recommendations.map((data: any) => {
+      if (data.favoriteList.indexOf(this.name) !== -1) {
+        data.added = true;
+      } else { data.added = false; }
+      this.recommendation.push(data);
+      if (this.recommendations.length == this.recommendation.length) {
+        this.show = true;
+      }
+
+    });
 
 
-    this.recommendation = [...this._shareService.getData()];
 
-    this.show = true;
   }
 
   getDate(name: string) {
     return (new Date(name).getDate().toString() + '-' + new Date(name).getMonth().toString() + '-' + new Date(name).getFullYear().toString()).toString()
   }
-  addToFavourites(match: any) {
+  addToFavourites(match: any, index: number) {
     this._matchService.addToFavourites(match).subscribe((data: any) => {
-      console.log(data);
+      this.recommendation[index].added = true;
     })
   }
-  check(item: any) {
 
-    let found = item.favoriteList.indexOf(sessionStorage.getItem('userId').toString())
-    if (found) {
-
-      return true;
-
-    }
-    else { return false }
+  ascending() {
+    this.recommendation.sort((a, b) => {
+      return a.recommendationScore - b.recommendationScore;
+    })
+  }
+  descending() {
+    this.recommendation.sort((a, b) => {
+      return b.recommendationScore - a.recommendationScore;
+    })
 
   }
 

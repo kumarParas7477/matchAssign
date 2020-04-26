@@ -7,6 +7,7 @@ h3 {
     padding: 15px;
   }
 
-  body{
-      width:100%
+  #calendar{
+    font-family: cursive;
+    font-size: 8px
   }

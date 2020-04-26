@@ -1,8 +1,12 @@
 <!-- <mat-spinner style="margin-top: 10%; margin-left: 45%;" *ngIf='!show'></mat-spinner> -->
 <div *ngIf="show">
   <div class="container">
-    <h1 class='bg-dark' style="text-align: center;color: white;">RECOMMENDATIONS</h1>
-    <table class="table table-dark table-responsive-lg">
+    <h3 class='bg-dark' style="text-align: center;color: white;">RECOMMENDATIONS</h3>
+    <div class=".btn-group-lg pull-right" style="font-weight: bold;margin-top: 0%">
+      <button class="btn-dark " (click)='ascending()'>ASC</button>
+      <button class="btn-dark " (click)='descending()'>DESC</button>
+    </div>
+    <table class="table table-info table-responsive-lg">
       <thead>
         <tr>
           <th>Sr.</th>
@@ -24,8 +28,11 @@
           <td><strong>{{ item['team-2']}}</strong></td>
           <td><strong>{{  item.recommendationScore }}</strong></td>
 
-          <td><button class="btn btn-sm btn-primary" [disabled]='!check(item)'
-              (click)='addToFavourites(item)'>{{check(item)? 'Add To Favourites': 'Added' }}
+          <td *ngIf="!item.added"><button id='favouriteButton' class="btn btn-sm btn-primary"
+              (click)='addToFavourites(item,i)'>Add To Favourites
+            </button></td>
+
+          <td *ngIf="item.added"><button class="btn btn-sm btn-primary" disabled>Added
             </button></td>
 
         </tr>

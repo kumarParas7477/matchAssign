@@ -7,9 +7,6 @@ import { ShareDataServiceService } from '../../../../sharedModule/share-data-ser
   styleUrls: ['./match-data-table.component.css']
 })
 export class MatchDataTableComponent implements OnInit {
-  ngOnInit(): void {
-
-  }
 
   @Input()
   NewMatchData: any[] = [];
@@ -20,7 +17,7 @@ export class MatchDataTableComponent implements OnInit {
   show = false;
   constructor(private _matchService: GetmatchdataService) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnInit() {
 
     this.NewMatchData.map((data: any) => {
       if (data.favoriteList.indexOf(this.name) !== -1) {
@@ -35,10 +32,13 @@ export class MatchDataTableComponent implements OnInit {
 
 
   }
-  addToFavourites(match: any) {
+  addToFavourites(match: any, index: number) {
     this._matchService.addToFavourites(match).subscribe((data: any) => {
       console.log(data);
+      this.FilterData[index].added = true;
+      console.log(this.FilterData[index]);
     });
+
   }
 
 
