@@ -37,8 +37,6 @@ export class RecoComponComponent implements OnInit {
   }
 
   getDate(name: string) {
-    console.log(name);
-    console.log(new Date(name).getMonth().toString());
 
     let todaydate = new Date(name).getDate() < 10 ? "0" + new Date(name).getDate().toString() : new Date(name).getDate().toString();
     let month = (new Date(name).getMonth() + 1) < 10 ? "0" + (new Date(name).getMonth() + 1).toString() : (new Date(name).getMonth() + 1).toString();
@@ -62,6 +60,9 @@ export class RecoComponComponent implements OnInit {
     })
 
   }
+
+
+
 
 
 }
