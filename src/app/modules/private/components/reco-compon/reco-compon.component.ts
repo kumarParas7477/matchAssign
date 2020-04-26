@@ -48,7 +48,7 @@ export class RecoComponComponent implements OnInit {
   addToFavourites(match: any, index: number) {
     this._matchService.addToFavourites(match).subscribe((data: any) => {
       this.recommendation[index].added = true;
-    })
+    }, (error: any) => alert("Not Added"));
   }
 
   ascending() {

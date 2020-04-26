@@ -65,15 +65,14 @@ export class LoginComponent implements OnInit {
     this.LoginForm.value.userId = this.usernameresolve[0].toLocaleLowerCase() + '@' + this.usernameresolve[1].toLocaleLowerCase()
     sessionStorage.setItem('username', this.LoginForm.value.userId);
     this._service.checkProfile(this.LoginForm.value).subscribe((data: any) => {
+
       if (data.token != undefined) {
         sessionStorage.setItem("Authorization", data.token);
         sessionStorage.setItem('userId', this.LoginForm.value.userId);
         this._router.navigate(['/private']);
       }
-      else {
-        alert("Invalid credentials");
-      }
-    })
+
+    }, (error: any) => alert("Invalid credentials"))
 
 
   }

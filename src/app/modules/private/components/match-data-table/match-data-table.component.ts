@@ -35,10 +35,10 @@ export class MatchDataTableComponent implements OnInit {
   }
   addToFavourites(match: any, index: number) {
     this._matchService.addToFavourites(match).subscribe((data: any) => {
-      console.log(data);
+
       this.FilterData[index].added = true;
-      console.log(this.FilterData[index]);
-    });
+
+    }, (error: any) => alert("Not Added"));
 
   }
 
